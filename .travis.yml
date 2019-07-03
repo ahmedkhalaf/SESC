@@ -1,0 +1,19 @@
+sudo: required
+services:
+  - docker
+
+env: SH="docker exec --user cs6290 hpcsesc bash -c"
+
+before_install:
+- docker pull markiemark1/6290:precise
+- docker run --name hpcsesc -d markiemark1/6290:precise tail -f /dev/null
+- docker ps
+- $SH "whoami"
+- $SH "ls"
+- $SH "cd ~/sesc && make"
+- $SH "cd ~/sesc/apps/Splash2/lu && make"
+
+script:
+
+- $SH "cd ~/sesc/apps/Splash2/lu && ~/sesc/sesc.opt -fn32.rpt -c ~/sesc/confs/cmp4-noc.conf -olu.out -elu.err lu.mipseb -n32 -p1"
+- $SH "cd ~/sesc/apps/Splash2/lu && ~/sesc/scripts/report.pl sesc_lu.mipseb.n32.rpt"
