@@ -13,8 +13,8 @@ before_install:
 - $SH "cd ~/sesc && make"
 - $SH "cd ~/sesc/apps/Splash2/lu && make"
 - $SH "cd ~/sesc/apps/Splash2/lu && mkdir Ap1 && cp *.mipseb ./Ap1"
-- $SH "cd ~/sesc/apps/Splash2/lu && mkdir Ap1 && cp *.mipseb ./Ap2"
-- $SH "cd ~/sesc/apps/Splash2/lu && mkdir Ap1 && cp *.mipseb ./Ap4"
+- $SH "cd ~/sesc/apps/Splash2/lu && mkdir Ap2 && cp *.mipseb ./Ap2"
+- $SH "cd ~/sesc/apps/Splash2/lu && mkdir Ap4 && cp *.mipseb ./Ap4"
 - $SH "cd ~/sesc/apps/Splash2/lu && mkdir reports"
 
 script:
